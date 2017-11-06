@@ -4,15 +4,16 @@ function getAndPrintHTMLChunks () {
 
   var requestOptions = {
     host: 'sytantris.github.io',
-    path: 'https://www.example.com/'
+    path: '/http-examples/step1.html'
   };
 
-  https.get(requestOptions.path, (res) => {
+
+  https.get(requestOptions, (res) => {
     console.log("Status code: " + res.statusCode)
 
     res.setEncoding('utf8');
 
-    let responseBodyString = '';
+    var responseBodyString = '';
     res.on('data', (chunk) => {
       responseBodyString += "/n" + chunk;
       console.log(responseBodyString)
